@@ -23,8 +23,7 @@ jobs:
 
     - name: Run Python scripts
       run: |
-        python script1.py
-        python script2.py
+        python main.py
 
     - name: Merge outputs and write to Excel
       run: |
