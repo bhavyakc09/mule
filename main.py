@@ -1,16 +1,13 @@
-import os
 import pandas as pd
+import os
 
-input_file_path = os.environ['INPUT_FILE']
+input_files = os.environ['INPUT_FILE'].split(',')
+output_file = os.environ['OUTPUT_FILE']
 
-# Read input data from Excel file
-df = pd.read_excel(input_file_path)
+dfs = []
+for file in input_files:
+    df = pd.read_csv(file)
+    dfs.append(df)
 
-# process the input data
-# ...
-
-# write the output data to a new Excel file
-output_file = os.environ.get('OUTPUT_FILE')
-if output_file:
-    # write output to file
-    df.to_excel(output_file, index=False)
+merged = pd.concat(dfs, axis=1)
+merged.to_excel(output_file, index=False)
