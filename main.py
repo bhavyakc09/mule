@@ -1,8 +1,8 @@
 import pandas as pd
 import os
 
-input_files = os.environ['INPUT_FILE'].split(',')
-output_file = os.environ['OUTPUT_FILE']
+input_files = os.environ['input_data.xlsx'].split(',')
+output_file = os.environ['output_data.xlsx']
 
 dfs = []
 for file in input_files:
